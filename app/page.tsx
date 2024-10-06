@@ -7,7 +7,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 export default function Home() {
   return (
     <>
-      <Card className="w-[350px]">
+      <Card className="w-full mt-16 border-2 rounded-none">
         <CardHeader>
           <CardTitle>Create project</CardTitle>
           <CardDescription>Deploy your new project in one-click.</CardDescription>
