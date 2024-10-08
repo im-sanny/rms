@@ -26,7 +26,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
        <Navbar></Navbar>
+       <div className="">
         {children}
+       </div>
       </body>
     </html>
   );

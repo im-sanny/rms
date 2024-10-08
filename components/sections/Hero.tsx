@@ -6,7 +6,7 @@ import { Button } from '../ui/button';
 export default function Hero() {
 
     return (
-        <div className="relative h-[90vh] w-full overflow-hidden">
+        <div className="relative h-[90vh] w-full overflow-hidden mt-[64px] ">
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
