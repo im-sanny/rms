@@ -12,6 +12,14 @@ const config: Config = {
 			colors: {
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				primary: '#FF6F3C',
+				secondary: '#2D4059',
+				accent: '#FFC93C',
+				neutral: {
+					cream: '#FFF7E4',
+					black: '#2A2A2A',
+					grey: '#ECECEC',
+				},
 				card: {
 					DEFAULT: 'hsl(var(--card))',
 					foreground: 'hsl(var(--card-foreground))'
