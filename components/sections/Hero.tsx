@@ -10,12 +10,12 @@ export default function Hero() {
             {/* Background Image */}
             <div className="absolute inset-0 z-0">
                 <Image
-                    src="https://i.ibb.co/zxvt4mP/pexels-cottonbro-studio-6466292.jpg"
+                    src="https://i.ibb.co/Y2NtTwD/pexels-isabella-mendes-858508.jpg"
                     alt="Restaurant ambiance"
-                    width={1920}
-                    height={1080}
-                    layout="responsive"
-                    className="object-cover"
+                    layout="fill"
+                    objectFit="cover" 
+                    objectPosition="center" 
+                    className="object-contain"
                 />
                 {/* Overlay for better text readability */}
                 <div className="absolute inset-0 bg-black/40"></div>
