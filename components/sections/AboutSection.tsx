@@ -146,7 +146,7 @@ export default function AboutSection() {
 
                         {/* Decorative elements */}
                         <div className="absolute top-0 left-0 w-24 h-24 bg-orange-500 opacity-10 rounded-full -translate-x-12 -translate-y-12"></div>
-                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-orange-500 opacity-10 rounded-full translate-x-16 translate-y-16"></div>
+                        <div className="absolute bottom-0 right-0 w-32 h-32 bg-orange-500 opacity-10 rounded-full translate-x-12 translate-y-10"></div>
                     </div>
                 </div>
             </div>
