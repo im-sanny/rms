@@ -1,6 +1,6 @@
 "use client"
 import React, { useState } from 'react';
-import { Menu, Home, BookOpen, Calendar, Info, Phone, User, ShoppingCart } from 'lucide-react';
+import { Menu, Home, BookOpen, Calendar, Info, Phone, User, ShoppingCart, Rainbow, ListOrdered, ChevronDown } from 'lucide-react';
 import {
     Sheet,
     SheetContent,
@@ -26,8 +26,9 @@ import {
     DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../ui/collapsible';
 
-const Navbar = () => {
+export default function Navbar() {
     const [isLoggedIn] = useState(false);
     const [cartItems] = useState(3);
 
@@ -47,25 +48,51 @@ const Navbar = () => {
             </SheetTrigger>
             <SheetContent side="left">
                 <SheetHeader>
-                    <SheetTitle>Bistro Fusion</SheetTitle>
+                    <SheetTitle>Rainbow</SheetTitle>
                 </SheetHeader>
                 <div className="flex flex-col gap-4 mt-4">
-                    <Button variant="ghost" className="justify-start">
+                    <Button variant="ghost" className="justify-start h-11">
                         <Home className="mr-2 h-4 w-4" /> Home
                     </Button>
-                    <Button variant="ghost" className="justify-start">
-                        <BookOpen className="mr-2 h-4 w-4" /> Menu
+                    <Collapsible>
+                        <CollapsibleTrigger asChild>
+                            <Button
+                                variant="ghost"
+                                className="justify-between w-full h-11"
+                            >
+                                <span className="flex items-center">
+                                    <BookOpen className="mr-2 h-4 w-4" /> Menu
+                                </span>
+                                <ChevronDown className="h-4 w-4" />
+                            </Button>
+                        </CollapsibleTrigger>
+                        <CollapsibleContent>
+                            <div className="flex flex-col gap-2 mt-2 ml-6">
+                                {menuItems.map((item) => (
+                                    <Button
+                                        key={item.name}
+                                        variant="ghost"
+                                        className="justify-start h-11"
+                                        asChild
+                                    >
+                                        <a href={item.href}>
+                                            {item.name}
+                                        </a>
+                                    </Button>
+                                ))}
+                            </div>
+                        </CollapsibleContent>
+                    </Collapsible>
+                    <Button variant="ghost" className="justify-start h-11">
+                        <ListOrdered className="mr-2 h-4 w-4" /> Order Now
                     </Button>
-                    <Button variant="default" className="justify-start">
-                        Order Now
-                    </Button>
-                    <Button variant="ghost" className="justify-start">
+                    <Button variant="ghost" className="justify-start h-11">
                         <Calendar className="mr-2 h-4 w-4" /> Reservations
                     </Button>
-                    <Button variant="ghost" className="justify-start">
+                    <Button variant="ghost" className="justify-start h-11">
                         <Info className="mr-2 h-4 w-4" /> About Us
                     </Button>
-                    <Button variant="ghost" className="justify-start">
+                    <Button variant="ghost" className="justify-start h-11">
                         <Phone className="mr-2 h-4 w-4" /> Contact
                     </Button>
                 </div>
@@ -74,14 +101,50 @@ const Navbar = () => {
     );
 
     return (
-        <nav className="fixed top-0 w-full bg-white border-b border-gray-200 z-50 mb-1">
+        <nav className="fixed top-0 w-full bg-secondary border-b border-gray-200 z-50 mb-1 text-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between h-16 items-center">
-                    <div className="flex items-center">
+
+                    <div className="flex justify-evenly items-center">
                         <MobileNav />
-                        <span className="text-xl font-bold">Rainbow</span>
+                        <div className="text-xl font-bold flex justify-center gap-1 items-center">
+                            <Rainbow className='h-10 w-10' />
+                            Rainbow
+                        </div>
                     </div>
 
+                    <div className="md:hidden">
+                        <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                                <Button variant="ghost" size="icon">
+                                    <User className="h-4 w-4" />
+                                </Button>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent>
+                                {isLoggedIn ? (
+                                    <>
+                                        <DropdownMenuLabel>My Account</DropdownMenuLabel>
+                                        <DropdownMenuItem>Profile</DropdownMenuItem>
+                                        <DropdownMenuItem>My Orders</DropdownMenuItem>
+                                        <DropdownMenuSeparator />
+                                        <DropdownMenuItem>Logout</DropdownMenuItem>
+                                    </>
+                                ) : (
+                                    <>
+                                        <DropdownMenuItem>Sign In</DropdownMenuItem>
+                                        <DropdownMenuItem>Sign Up</DropdownMenuItem>
+                                    </>
+                                )}
+                            </DropdownMenuContent>
+                        </DropdownMenu>
+
+                        <Button variant="ghost" size="icon" className="relative">
+                            <ShoppingCart className="h-4 w-4" />
+                            <Badge variant="destructive" className="absolute -top-2 -right-2">
+                                {cartItems}
+                            </Badge>
+                        </Button>
+                    </div>
                     {/* Desktop Navigation */}
                     <div className="hidden md:flex items-center space-x-4">
                         <NavigationMenu>
@@ -93,11 +156,11 @@ const Navbar = () => {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <NavigationMenuTrigger>
+                                    <NavigationMenuTrigger className='bg-secondary'>
                                         <BookOpen className="mr-2 h-4 w-4" /> Menu
                                     </NavigationMenuTrigger>
                                     <NavigationMenuContent>
-                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                                        <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[300px]">
                                             {menuItems.map((item) => (
                                                 <li key={item.name}>
                                                     <NavigationMenuLink asChild>
@@ -115,8 +178,8 @@ const Navbar = () => {
                                 </NavigationMenuItem>
 
                                 <NavigationMenuItem>
-                                    <Button variant="default">
-                                        Order Now
+                                    <Button variant="ghost">
+                                        <ListOrdered className='mr-2 h-4 w-4' /> Order Now
                                     </Button>
                                 </NavigationMenuItem>
 
@@ -175,6 +238,4 @@ const Navbar = () => {
             </div>
         </nav>
     );
-};
-
-export default Navbar;
+}
