@@ -27,6 +27,7 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { Badge } from "@/components/ui/badge"
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '../ui/collapsible';
+import Link from 'next/link';
 
 export default function Navbar() {
     const [isLoggedIn] = useState(false);
@@ -131,8 +132,12 @@ export default function Navbar() {
                                     </>
                                 ) : (
                                     <>
-                                        <DropdownMenuItem>Sign In</DropdownMenuItem>
-                                        <DropdownMenuItem>Sign Up</DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link href='/login'>Sign In</Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link href={'/register'}>Sign Up</Link>
+                                        </DropdownMenuItem>
                                     </>
                                 )}
                             </DropdownMenuContent>
@@ -151,7 +156,10 @@ export default function Navbar() {
                             <NavigationMenuList>
                                 <NavigationMenuItem>
                                     <Button variant="ghost">
-                                        <Home className="mr-2 h-4 w-4" /> Home
+                                        <Home className="mr-2 h-4 w-4" />
+                                        <Link href='/'>
+                                            Home
+                                        </Link>
                                     </Button>
                                 </NavigationMenuItem>
 
@@ -220,8 +228,12 @@ export default function Navbar() {
                                     </>
                                 ) : (
                                     <>
-                                        <DropdownMenuItem>Sign In</DropdownMenuItem>
-                                        <DropdownMenuItem>Sign Up</DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link href='/login'>Sign In</Link>
+                                        </DropdownMenuItem>
+                                        <DropdownMenuItem>
+                                            <Link href={'/register'}>Sign Up</Link>
+                                        </DropdownMenuItem>
                                     </>
                                 )}
                             </DropdownMenuContent>

@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 import Navbar from "@/components/sections/Navbar";
+import Footer from "@/components/sections/Footer";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -29,6 +30,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
        <div className="">
         {children}
        </div>
+       <Footer></Footer>
       </body>
     </html>
   );

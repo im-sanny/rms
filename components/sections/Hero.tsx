@@ -13,8 +13,8 @@ export default function Hero() {
                     src="https://i.ibb.co/Y2NtTwD/pexels-isabella-mendes-858508.jpg"
                     alt="Restaurant ambiance"
                     layout="fill"
-                    objectFit="cover" 
-                    objectPosition="center" 
+                    objectFit="cover"
+                    objectPosition="center"
                     className="object-contain"
                 />
                 {/* Overlay for better text readability */}

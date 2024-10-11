@@ -2,6 +2,6 @@ import React from 'react'
 
 export default function Register() {
     return (
-        <div>register page</div>
+        <div className='mt-[64px]'>register page</div>
     )
 }
