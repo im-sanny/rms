@@ -1,26 +1,10 @@
 "use client"
-import React, { useState } from 'react';
 import { AlertCircle, Coffee, Utensils, ChefHat } from 'lucide-react';
 import { Alert, AlertDescription } from '@/components/ui/alert';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 
-export default function RainbowLogin() {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!username || !password) {
-      setError('Please enter both username and password.');
-    } else {
-      // Here you would typically make an API call to verify credentials
-      console.log('Login attempt:', { username, password });
-      setError('');
-      // Redirect or update state based on successful login
-    }
-  };
+export default function Login() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-100 via-orange-200 to-red-200 flex items-center justify-center p-4 mt-[64px]">
@@ -35,7 +19,7 @@ export default function RainbowLogin() {
             Welcome to Rainbow
           </h2>
         </div>
-        <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+        <form className="mt-8 space-y-6">
           <div className="space-y-4">
             <Input
               id="username"
@@ -43,8 +27,7 @@ export default function RainbowLogin() {
               type="text"
               required
               placeholder="Username"
-              value={username}
-              onChange={(e) => setUsername(e.target.value)}
+              value={''}
               className="focus:ring-amber-500 focus:border-amber-500 bg-white bg-opacity-50 backdrop-blur-sm"
             />
             <Input
@@ -53,16 +36,15 @@ export default function RainbowLogin() {
               type="password"
               required
               placeholder="Password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              value={''}
               className="focus:ring-amber-500 focus:border-amber-500 bg-white bg-opacity-50 backdrop-blur-sm"
             />
           </div>
 
-          {error && (
+          {'error' && (
             <Alert variant="destructive">
               <AlertCircle className="h-4 w-4" />
-              <AlertDescription>{error}</AlertDescription>
+              <AlertDescription>{'error'}</AlertDescription>
             </Alert>
           )}
 
